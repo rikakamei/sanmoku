@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import * as React from 'react';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 function Square({ value, onSquareClick }) {
     return (
@@ -77,7 +80,23 @@ export default function Game(){
     }
     return (
       <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
+        <Button
+          variant="outlined"
+          onClick={() => jumpTo(move)}
+          sx={{
+            margin: '5px',
+            size: 'small',
+            width: '100%',    
+            fontSize: '12px',
+            backgroundColor: move === currentMove ? '#cfe8fc' : '#ffffff',
+            // color: '#000',
+            '&:hover': {
+              backgroundColor: move === currentMove ? '#b0d4f9' : '#e0e0e0'
+             }
+          }}
+        >
+          {description}
+        </Button>
       </li>
     );
   });
